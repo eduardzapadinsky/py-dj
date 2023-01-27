@@ -6,11 +6,11 @@
             {% for task in tasks %}
                 <li class="list-group-item list-group-item-action" id="task-{{ task.id }}"><a
                         href="{% url "task-detail" task.id %}">{{ task.title }}</a>
-                    <label for="completed"></label>
+                    <label for="completed-{{ forloop.counter }}"></label>
                     {% if task.completed %}
-                        <input id="completed" type="checkbox" checked value="Completed">
+                        <input id="completed-{{ forloop.counter }}" type="checkbox" checked value="Completed">
                     {% else %}
-                        <input id="completed" type="checkbox" value="Completed">
+                        <input id="completed-{{ forloop.counter }}" type="checkbox" value="Completed">
                     {% endif %}
                 </li>
             {% endfor %}
