@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Task Info{% endblock %}
+{% block content %}
+    <p class="display-6">{{ task.title }}</p>
+    <ul class="list-group">
+        <li class="list-group-item">Id - {{ task.id }}</li>
+        <li class="list-group-item">Description - {{ task.description }}</li>
+        <li class="list-group-item">Created - {{ task.created }}</li>
+        <li class="list-group-item">Updated - {{ task.updated }}</li>
+        <li class="list-group-item">
+            <label for="completed">Completed - </label>
+            {% if task.completed %}
+                <input id="completed" type="checkbox" checked value="Completed">
+            {% else %}
+                <input id="completed" type="checkbox" value="Completed">
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %}
