@@ -1,0 +1,8 @@
+<div class="nav-scroller py-1 mb-3">
+    <nav class="nav d-flex justify-content-between">
+        {% for category in categories %}
+            <div class="nav-item"><a href="{% url "category" category.slug %}"
+                                     class="nav-link link-secondary">{{ category.title }}</a></div>
+        {% endfor %}
+    </nav>
+</div>

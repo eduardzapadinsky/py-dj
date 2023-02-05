@@ -1,0 +1,9 @@
+<div class="ps-4">
+    <h4>Archive</h4>
+    <ul class="list-unstyled">
+        {% for month in months_list %}
+            <li class="text-capitalize"><a href="{% url "date" month.2 %}"
+                                           class="link-secondary">{{ month.0 }} {{ month.1 }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

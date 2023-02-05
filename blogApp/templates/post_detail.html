@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block carousel %}
+    {% include "_carousel.html" %}
+{% endblock %}
+{% block contant %}
+    <main class="container">
+        <div class="row">
+            <section class="col-md-9 mb-2" role="main">
+                <h1 class="h1">{{ post.title }}</h1>
+                <div class="row position-relative">
+                    <article class="col w-100">
+                        <div class="mb-3">
+                            <strong class="fw-light">{{ post.category }}</strong>
+                            <small>
+                                <i class="bi bi-person mx-1"></i><a href="" class="fw-bolder link-secondary">Article
+                                Author</a>
+                                <i class="bi bi-calendar mx-1"></i><span>{{ post.updated|date:"j E Y" }}</span>
+                            </small>
+                        </div>
+                        <p>
+                            {{ post.content|linebreaks }}
+                        </p>
+                    </article>
+                </div>
+            </section>
+            {% include "_sidebar.html" %}
+        </div>
+    </main>
+{% endblock %}

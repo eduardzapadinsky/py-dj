@@ -1,0 +1,38 @@
+<div id="blogPostsCarousel" class="carousel slide bg-dark" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#blogPostsCarousel" data-bs-slide-to="0" class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#blogPostsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#blogPostsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        {% for post in posts|slice:":3" %}
+            {% if forloop.counter == 1 %}
+                <div class="carousel-item active">
+            {% else %}
+                <div class="carousel-item">
+            {% endif %}
+        <div class="container h-100 w-100 d-flex justify-content-center">
+            <img src="https://loremflickr.com/320/240?random={{ forloop.counter }}" alt="{{ post.title }}"
+                 class="h-100">
+        </div>
+        <div class="container">
+            <div class="carousel-caption">
+                <p class="h1">{{ post.title }}</p>
+                <p class="fs-4">{{ post.content|truncatewords_html:6|safe }}</p>
+                <p><a class="btn btn-lg btn-dark" href="{% url "post-detail" post.slug %}">View post</a></p>
+            </div>
+        </div>
+        </div>
+        {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#blogPostsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#blogPostsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
