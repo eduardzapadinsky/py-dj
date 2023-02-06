@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% block contant %}
     <main class="form-auth form-signup w-100 m-auto">
-        <form>
+        <form method="post">
+            {% csrf_token %}
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <div class="form-floating">
                 <input type="text" class="form-control" id="username" placeholder="Username" name="username">
@@ -22,7 +23,7 @@
             </div>
             <div class="my-3">
                 <p>Have already an account?</p>
-                <a href="signin.html" class="text-body fw-bold">Sing in here</a>
+                <a href="{% url "signin" %}" class="text-body fw-bold">Sing in here</a>
             </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button>
         </form>
